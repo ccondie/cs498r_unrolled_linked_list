@@ -11,28 +11,25 @@ An [Unrolled Linked List](https://en.wikipedia.org/wiki/Unrolled_linked_list) is
 
 ### Balancing
 
-Here is an example of adding to the end of an Unrolled Linked List with a max node capacity of 5. X indicates the end.[this link has a good explaination of insertion / deletion](https://blogs.msdn.microsoft.com/devdev/2005/08/22/unrolled-linked-lists/)
+Here is an example of adding to the end of an Unrolled Linked List with a max node capacity of 4.[this link has a good explaination of insertion / deletion](https://blogs.msdn.microsoft.com/devdev/2005/08/22/unrolled-linked-lists/)
 
 ```
 {}
-{[1, X]}
-{[1, 2, X]}
-{[1, 2, 3, X]}
-{[1, 2, 3, 4, X]}
-{[1, 2, 3], [4, 5, X]}
-{[1, 2, 3], [4, 5, 6, X]}
-{[1, 2, 3], [4, 5, 6, 7 X]}
-{[1, 2, 3], [4, 5, 6], [7, 8, X]}
+{[1]}
+{[1, 2]}
+{[1, 2, 3]}
+{[1, 2, 3, 4]}
+{[1, 2], [3, 4, 5]}
+{[1, 2], [3, 4, 5, 6]}
+{[1, 2], [3, 4], [5, 6, 7]}
+{[1, 2], [3, 4], [5, 6, 7, 8]}
 ```
 
-If I were to remove the value 5:
+If I were to remove the value 3, then 4:
 
 ```
-{[1, 2, 3], [4, 5, 6], [7, 8, X]}
-{[1, 2, 3], [4, 6], [7, 8, X]}
-
-# then 6
-{[1, 2, 3], [4, 7, 8, X]}
+{[1, 2], [4, 5, 6], [7, 8]}
+{[1, 2], [5, 6], [7, 8]}
 ```
 
 ### Pros
@@ -68,7 +65,7 @@ where each set of [] indicates the list of values within a single node.
     * returnsthetotal#ofdatainthelist,notthenumberofnodes
 * \_\_reversed\_\_ (self)
     * Reverses the list. Does not return a new list - actually mutates the data structure
-* \_\_contains\_\_ (self,obj)
+* \_\_contains\_\_ (self, obj)
     * Returns True if obj is in the data structure, otherwise False
 
 Implement additional method:
@@ -77,7 +74,9 @@ Implement additional method:
     * Add the data to the end of the list
     * If a node has reached its max capacity, you must create a new node to put the data in
 
-You are also responsible for writing your own test cases. We are expecting complete code coverage. Your test cases should be in a separate file. See below to learn more about the unittest package
+You are also responsible for writing your own test cases. We highly recommend taking advantage of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development). We are expecting complete code coverage, if you can define your tests based on what you know about unrolled linked lists, your life will be much easier. 
+
+Your test cases should be in a separate file. See below to learn more about the unittest package
 
 Your class should be called UnrolledLinkedList, in the package lists
 
