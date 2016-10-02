@@ -1,6 +1,6 @@
 # Unrolled Linked List
 
-This repository contains starter code for lab 1 of BYU's CS498r: Problem Solving and Competitive Programming class
+This repository contains information for lab 1 of BYU's CS498r: Problem Solving and Competitive Programming class
 
 
 ## What is an Unrolled Linked List?
