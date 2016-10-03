@@ -109,7 +109,7 @@ To get extra credit, you can implement any of the following dunder methods (3 po
 
 ## unittest
 
-unittest is a built-in testing framework for Python ([Python2](https://docs.python.org/2/library/unittest.html) or [Python2](https://docs.python.org/3/library/unittest.html)). You will need to use this for the testing portion of the lab
+unittest is a built-in testing framework for Python ([Python2](https://docs.python.org/2/library/unittest.html) or [Python3](https://docs.python.org/3/library/unittest.html)). You will need to use this for the testing portion of the lab
 
 If I were to implement a test case for testing a Python list, I might start with something similar to the following...
 
