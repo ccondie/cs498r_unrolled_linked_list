@@ -2,7 +2,7 @@
 
 This repository contains information for lab 1 of BYU's CS498r: Problem Solving and Competitive Programming class.
 
-Startup code is provided to turn your code into a package with 2 modules (UnrolledLinkedList and Tests)
+Startup code is provided to turn your code into a package with 2 modules (UnrolledLinkedList and Tests). Please follow the exact naming conventions and file structure of this repository
 
 
 ## What is an Unrolled Linked List?
