@@ -66,7 +66,7 @@ where each set of [] indicates the list of values within a single node.
 * \_\_len\_\_ (self)
     * returnsthetotal#ofdatainthelist,notthenumberofnodes
 * \_\_reversed\_\_ (self)
-    * Reverses the list. Does not return a new list - actually mutates the data structure
+    * reverse of iter
 * \_\_contains\_\_ (self, obj)
     * Returns True if obj is in the data structure, otherwise False
 
