@@ -11,59 +11,59 @@ class UnrolledLinkedList():
         # check for index out of bounds
         if abs(index) > self.length:
             raise IndexError
-        else:
-            # resolve negative indexes to function as positive indexes
-            if index < 0:
-                index += self.length
 
-            nodeIndex = 0
-            while True:
-                if index < len(self.nodeList[nodeIndex]):
-                    # if the index is within the current node
-                    del self.nodeList[nodeIndex][index]
-                    self.length -= 1
+        # resolve negative indexes to function as positive indexes
+        if index < 0:
+            index += self.length
 
-                    # check if the node slipped below max/2
-                    if len(self.nodeList[nodeIndex]) < floor(self.max_node_capacity / 2):
-                        # balance nodes
-                        if nodeIndex == len(self.nodeList) - 1:
-                            # if the node is at the end of the nodeList, stop
-                            # MAYBE CHECK FOR A EMPTY NODE TO DELETE
-                            if len(self.nodeList[nodeIndex]) == 0:
-                                del self.nodeList[nodeIndex]
-                            break
-                        while nodeIndex < len(self.nodeList) - 1:
-                            # for every node up until the last node
-                            while len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity / 2):
-                                # pull elements fron the next node one at a time
-                                dummy = self.nodeList[nodeIndex + 1][0]
-                                del self.nodeList[nodeIndex + 1][0]
-                                if len(self.nodeList[nodeIndex + 1]) == 0:
-                                    del self.nodeList[nodeIndex + 1]
-                                self.nodeList[nodeIndex].append(dummy)
-                            nodeIndex += 1
-                    break
-                else:
-                    index -= len(self.nodeList[nodeIndex])
-                    nodeIndex += 1
+        nodeIndex = 0
+        while True:
+            if index < len(self.nodeList[nodeIndex]):
+                # if the index is within the current node
+                del self.nodeList[nodeIndex][index]
+                self.length -= 1
+
+                # check if the node slipped below max/2
+                if len(self.nodeList[nodeIndex]) < floor(self.max_node_capacity / 2):
+                    # balance nodes
+                    if nodeIndex == len(self.nodeList) - 1:
+                        # if the node is at the end of the nodeList, stop
+                        # MAYBE CHECK FOR A EMPTY NODE TO DELETE
+                        if len(self.nodeList[nodeIndex]) == 0:
+                            del self.nodeList[nodeIndex]
+                        break
+                    while nodeIndex < len(self.nodeList) - 1:
+                        # for every node up until the last node
+                        while len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity / 2):
+                            # pull elements fron the next node one at a time
+                            dummy = self.nodeList[nodeIndex + 1][0]
+                            del self.nodeList[nodeIndex + 1][0]
+                            if len(self.nodeList[nodeIndex + 1]) == 0:
+                                del self.nodeList[nodeIndex + 1]
+                            self.nodeList[nodeIndex].append(dummy)
+                        nodeIndex += 1
+                break
+            else:
+                index -= len(self.nodeList[nodeIndex])
+                nodeIndex += 1
 
     def __getitem__(self, index):
         # check for index out of bounds
         if abs(index) > self.length:
             raise IndexError
-        else:
-            # resolve negative indexes to function as positive indexes
-            if index < 0:
-                index += self.length
 
-            nodeIndex = 0
-            while True:
-                # if the index is within the current node
-                if index < len(self.nodeList[nodeIndex]):
-                    return self.nodeList[nodeIndex][index]
-                else:
-                    index -= len(self.nodeList[nodeIndex])
-                    nodeIndex += 1
+        # resolve negative indexes to function as positive indexes
+        if index < 0:
+            index += self.length
+
+        nodeIndex = 0
+        while True:
+            # if the index is within the current node
+            if index < len(self.nodeList[nodeIndex]):
+                return self.nodeList[nodeIndex][index]
+            else:
+                index -= len(self.nodeList[nodeIndex])
+                nodeIndex += 1
 
     def __setitem__(self, key, value):
         if key > self.length:
