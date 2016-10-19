@@ -28,7 +28,7 @@ class UnrolledLinkedList():
                     # balance nodes
                     if nodeIndex == len(self.nodeList) - 1:
                         # if the node is at the end of the nodeList, stop
-                        # MAYBE CHECK FOR A EMPTY NODE TO DELETE
+                        # if the node is now empty, delete it
                         if len(self.nodeList[nodeIndex]) == 0:
                             del self.nodeList[nodeIndex]
                         break
