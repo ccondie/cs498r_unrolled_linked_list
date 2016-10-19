@@ -8,11 +8,8 @@ def main():
     for i in range(0, 8):
         l.append(i)
 
-    if -1 in l:
-        print("true")
-    else:
-        print("false")
-
+    for el in reversed(l):
+        print(el)
 
 if __name__ == '__main__':
     main()

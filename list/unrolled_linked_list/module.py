@@ -107,7 +107,16 @@ class UnrolledLinkedList():
         return self.length
 
     def __reversed__(self):
-        pass
+        count = 0
+        nodeIndex = len(self.nodeList) - 1
+        local_count = len(self.nodeList[nodeIndex]) - 1
+        while count < self.length:
+            yield self.nodeList[nodeIndex][local_count]
+            local_count -= 1
+            count += 1
+            if local_count == -1:
+                nodeIndex -= 1
+                local_count = len(self.nodeList[nodeIndex]) - 1
 
     def __contains__(self, obj):
         count = 0
