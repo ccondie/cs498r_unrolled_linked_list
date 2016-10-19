@@ -1,4 +1,5 @@
 from math import floor
+from math import ceil
 
 
 class UnrolledLinkedList():
@@ -99,7 +100,7 @@ class UnrolledLinkedList():
         for i in range(0, len(self.nodeList)):
             return_me.append(str(self.nodeList[i]))
             if i != len(self.nodeList) - 1:
-                return_me.append(',')
+                return_me.append(', ')
         return_me.append('}')
         return ''.join(return_me)
 
@@ -146,8 +147,8 @@ class UnrolledLinkedList():
             self.length += 1
         else:
             # if the tail node is full, take half of it and create a new node
-            newNode = self.nodeList[endIndex][floor(endLength / 2):endLength]
-            del self.nodeList[endIndex][floor(endLength / 2):endLength]
+            newNode = self.nodeList[endIndex][ceil(endLength / 2):endLength]
+            del self.nodeList[endIndex][ceil(endLength / 2):endLength]
             self.nodeList.append(newNode)
             self.nodeList[endIndex + 1].append(data)
             self.length += 1

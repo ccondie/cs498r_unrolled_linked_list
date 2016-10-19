@@ -175,7 +175,7 @@ class UnrolledLinkedList_Test(unittest.TestCase):
         # add element 5
         self.l.append(5)
         self.assertEqual(self.l.length, 6)
-        self.assertEqual(str(self.l), '{[0, 1],[2, 3, 4, 5]}')
+        self.assertEqual(str(self.l), '{[0, 1, 2], [3, 4, 5]}')
 
     """
     CONTAINS TESTS
