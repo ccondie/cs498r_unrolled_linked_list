@@ -8,10 +8,10 @@ def main():
     for i in range(0, 8):
         l.append(i)
 
-    l[3] = 4
-    l[0] = 100
-    l[7] = 13
-    print(str(l))
+    if -1 in l:
+        print("true")
+    else:
+        print("false")
 
 
 if __name__ == '__main__':

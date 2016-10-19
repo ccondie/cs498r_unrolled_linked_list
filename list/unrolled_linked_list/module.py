@@ -82,7 +82,16 @@ class UnrolledLinkedList():
                 nodeIndex += 1
 
     def __iter__(self):
-        pass
+        count = 0
+        local_count = 0
+        nodeIndex = 0
+        while count < self.length:
+            yield self.nodeList[nodeIndex][local_count]
+            local_count += 1
+            count += 1
+            if local_count == len(self.nodeList[nodeIndex]):
+                local_count = 0
+                nodeIndex += 1
 
     def __str__(self):
         return_me = []
@@ -101,7 +110,18 @@ class UnrolledLinkedList():
         pass
 
     def __contains__(self, obj):
-        pass
+        count = 0
+        local_count = 0
+        nodeIndex = 0
+        while count < self.length:
+            if self.nodeList[nodeIndex][local_count] == obj:
+                return True
+            local_count += 1
+            count += 1
+            if local_count == len(self.nodeList[nodeIndex]):
+                local_count = 0
+                nodeIndex += 1
+        return False
 
     def append(self, data):
         # get the final node in the nodeList
