@@ -1,4 +1,3 @@
-''' You will need the following import if using python2 '''
 # from __future__ import absolute_import
 
 from ..unrolled_linked_list.module import UnrolledLinkedList
@@ -29,6 +28,7 @@ class UnrolledLinkedList_Test(unittest.TestCase):
         self.assertEqual(self.l.max_node_capacity, 16)
 
     def test_get_item(self):
+        self.l.max_node_capacity = 5
         self.assertEqual(self.l[1], 2)
         self.assertEqual(self.l[-2], 4)
         with self.assertRaises(IndexError) as cm:
@@ -46,8 +46,9 @@ class UnrolledLinkedList_Test(unittest.TestCase):
 
     def test_append(self):
         # shrink the max capacity to something more manageable
-        self.l.max_node_capacity = 6
+        self.l.max_node_capacity = 5
         self.assertEqual(self.l.length, 5)
         # add element 6
         self.l.append(6)
         self.assertEqual(self.l.length, 6)
+        self.assertEqual(str(self.l), '{[1, 2],[3, 4, 5, 6]}')
