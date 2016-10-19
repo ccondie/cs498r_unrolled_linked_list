@@ -8,6 +8,7 @@ def main():
     for i in range(1, 9):
         l.append(i)
 
+    print(str(l))
     for i in range(0, l.length):
         del l[0]
         print(str(l))

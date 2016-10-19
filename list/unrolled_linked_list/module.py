@@ -37,6 +37,8 @@ class UnrolledLinkedList():
                                 # pull elements fron the next node one at a time
                                 dummy = self.nodeList[nodeIndex + 1][0]
                                 del self.nodeList[nodeIndex + 1][0]
+                                if len(self.nodeList[nodeIndex + 1]) == 0:
+                                    del self.nodeList[nodeIndex + 1]
                                 self.nodeList[nodeIndex].append(dummy)
                             nodeIndex += 1
                     break
