@@ -6,12 +6,48 @@ import unittest
 
 
 class UnrolledLinkedList_Test(unittest.TestCase):
-    """This is an example of a Testing class. You are welcome to make multiple
-    classes to organize your code if you would like to, but it is in no way
-    required or expected. You'll want to replace this comment with your own.
     """
+
+    """
+
+    def setUp(self):
+        self.l = UnrolledLinkedList()
+        # create a unrolled linked list with one node with 5 elements 1-5
+        for i in range(1, 6):
+            self.l.append(i)
+
+    def tearDown(self):
+        del self.l
+
+    """
+    Begin Unit Tests
+    """
+
     def test_default_node_capacity(self):
         """Test that the default node capacity is being set, and is set to 16
         """
-        l = UnrolledLinkedList()
-        self.assertEqual(l.max_node_capacity, 16)
+        self.assertEqual(self.l.max_node_capacity, 16)
+
+    def test_get_item(self):
+        self.assertEqual(self.l[1], 2)
+        self.assertEqual(self.l[-2], 4)
+        with self.assertRaises(IndexError) as cm:
+            dummy = self.l[10]
+
+    def test_del_item(self):
+        self.assertEqual(self.l[1], 2)
+        del self.l[1]
+        self.assertEqual(self.l[1], 3)
+        self.assertEqual(self.l[-2], 4)
+        del self.l[-2]
+        self.assertEqual(self.l[-2], 3)
+        with self.assertRaises(IndexError) as cm:
+            del self.l[5]
+
+    def test_append(self):
+        # shrink the max capacity to something more manageable
+        self.l.max_node_capacity = 6
+        self.assertEqual(self.l.length, 5)
+        # add element 6
+        self.l.append(6)
+        self.assertEqual(self.l.length, 6)
