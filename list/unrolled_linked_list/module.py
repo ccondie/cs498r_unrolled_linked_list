@@ -1,5 +1,6 @@
 from math import floor
 
+
 class UnrolledLinkedList():
     def __init__(self, max_node_capacity=16):
         self.max_node_capacity = max_node_capacity
@@ -23,7 +24,7 @@ class UnrolledLinkedList():
                     self.length -= 1
 
                     # check if the node slipped below max/2
-                    if len(self.nodeList[nodeIndex]) < floor(self.max_node_capacity/2):
+                    if len(self.nodeList[nodeIndex]) < floor(self.max_node_capacity / 2):
                         # balance nodes
                         if nodeIndex == len(self.nodeList) - 1:
                             # if the node is at the end of the nodeList, stop
@@ -33,7 +34,7 @@ class UnrolledLinkedList():
                             break
                         while nodeIndex < len(self.nodeList) - 1:
                             # for every node up until the last node
-                            while len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity/2):
+                            while len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity / 2):
                                 # pull elements fron the next node one at a time
                                 dummy = self.nodeList[nodeIndex + 1][0]
                                 del self.nodeList[nodeIndex + 1][0]
@@ -61,11 +62,24 @@ class UnrolledLinkedList():
                 if index < len(self.nodeList[nodeIndex]):
                     return self.nodeList[nodeIndex][index]
                 else:
-                    index += len(self.nodeList[nodeIndex])
+                    index -= len(self.nodeList[nodeIndex])
                     nodeIndex += 1
 
     def __setitem__(self, key, value):
-        pass
+        if key > self.length:
+            raise IndexError
+
+        if key < 0:
+            key += self.length
+
+        nodeIndex = 0
+        while True:
+            if key < len(self.nodeList[nodeIndex]):
+                self.nodeList[nodeIndex][key] = value
+                break
+            else:
+                key -= len(self.nodeList[nodeIndex])
+                nodeIndex += 1
 
     def __iter__(self):
         pass
@@ -103,8 +117,8 @@ class UnrolledLinkedList():
             self.length += 1
         else:
             # if the tail node is full, take half of it and create a new node
-            newNode = self.nodeList[endIndex][floor(endLength/2):endLength]
-            del self.nodeList[endIndex][floor(endLength/2):endLength]
+            newNode = self.nodeList[endIndex][floor(endLength / 2):endLength]
+            del self.nodeList[endIndex][floor(endLength / 2):endLength]
             self.nodeList.append(newNode)
             self.nodeList[endIndex + 1].append(data)
             self.length += 1

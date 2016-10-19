@@ -5,13 +5,14 @@ def main():
     l = UnrolledLinkedList()
     l.max_node_capacity = 4
 
-    for i in range(1, 9):
+    for i in range(0, 8):
         l.append(i)
 
+    l[3] = 4
+    l[0] = 100
+    l[7] = 13
     print(str(l))
-    for i in range(0, l.length):
-        del l[0]
-        print(str(l))
+
 
 if __name__ == '__main__':
     main()
