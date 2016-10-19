@@ -168,10 +168,8 @@ class UnrolledLinkedList_Test(unittest.TestCase):
         for i in range(5, 20):
             self.l.append(i)
 
-        print(str(self.l))
-        del self.l[-1]
-        print(str(self.l))
-        del self.l[-19]
+        print(self.l)
+        del self.l[4]
         print(str(self.l))
 
 

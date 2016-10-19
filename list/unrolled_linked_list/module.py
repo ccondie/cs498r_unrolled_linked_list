@@ -35,6 +35,10 @@ class UnrolledLinkedList():
                         break
                     while nodeIndex < len(self.nodeList) - 1:
                         # for every node up until the last node
+                        if len(self.nodeList[nodeIndex]) >= floor(self.max_node_capacity / 2):
+                            nodeIndex += 1
+                            continue
+
                         while len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity / 2):
                             # pull elements from the next node one at a time
                             dummy = self.nodeList[nodeIndex + 1][0]
