@@ -25,7 +25,7 @@ class UnrolledLinkedList():
                 self.length -= 1
 
                 # check if the node slipped below max/2
-                if len(self.nodeList[nodeIndex]) < floor(self.max_node_capacity / 2):
+                if len(self.nodeList[nodeIndex]) <= floor(self.max_node_capacity / 2):
                     # balance nodes
                     if nodeIndex == len(self.nodeList) - 1:
                         # if the node is at the end of the nodeList, stop

@@ -163,6 +163,17 @@ class UnrolledLinkedList_Test(unittest.TestCase):
         del self.r[0]
         del self.r[0]
 
+    def test_max_6(self):
+        self.l.max_node_capacity = 6
+        for i in range(5, 20):
+            self.l.append(i)
+
+        print(str(self.l))
+        del self.l[-1]
+        print(str(self.l))
+        del self.l[-19]
+        print(str(self.l))
+
 
     """
     APPEND TESTS
